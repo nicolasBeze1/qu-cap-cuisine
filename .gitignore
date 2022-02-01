@@ -1,4 +1,4 @@
-/public/build/fonts/glyphicons-*
+open ~/.ssh/config/public/build/fonts/glyphicons-*
 /public/build/images/glyphicons-*
 
 ###> symfony/framework-bundle ###
