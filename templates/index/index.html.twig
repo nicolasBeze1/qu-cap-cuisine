@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <h1>{{ 'title.index'|trans }} </h1>
+
+    <div class="row">
+        <div class="col-lg-10">
+            {% for category in categories %}
+                {% if category.getTotalSurveys %}
+                    <a href="{{ path('category', {id: category.id}) }}"
+                       class="btn btn-block {{ category.getCompletionPercent == 100 ? 'btn-success' :'btn-info' }}">
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ category.title }}
+                            </div>
+
+                            <div class="col-md-3 text-center">
+                                {{ 'survey.test_success'|trans }} {{ category.nbSurveySuccess }}
+                            </div>
+                            <div class="col-md-3 text-center">
+                                {{ 'survey.survey_success'|trans }} {{ category.nbSuccess }}
+                                /{{ category.getTotalSurveys }}
+                            </div>
+
+                            <div class="col-md-2">
+                                {{ category.getCompletionPercent }}% {{ 'survey.display_end'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+
+            {% else %}
+                <div align="center">{{ 'category.no_categories_found'|trans }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

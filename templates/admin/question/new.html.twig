@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+
+
+
+    <div class="row p-3">
+        <div class="col-sm-8">
+            <h1>{{ survey.title }} </h1>
+            {% for question in survey.questions %}
+                - {{ question.title }}<br>
+            {% endfor %}
+        </div>
+        <div class="col-sm-4">
+            <p><img style="width: 100%" src="{{ vich_uploader_asset(survey, 'imageFile') }}" alt="{{ survey.title }}"></p>
+        </div>
+    </div>
+
+    <br>
+    <h2>{{ 'question.number_question'|trans }} {{ survey.questions.count + 1 }} ({{ survey.questionsToAsk }} {{ 'question.minimum_question'|trans }})</h2>
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.answer) }}
+    {{ form_row(form.answerHelp) }}
+    {{ form_row(form.answerDetail) }}
+    {{ form_row(form.imageFile) }}
+
+    {{ form_widget(form.saveAndCreateNew, {label: 'label.save_and_create_new_question', attr: {class: 'btn btn-primary'}}) }}
+
+    {% if  survey.questions.count + 1  >= survey.questionsToAsk %}
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.save_question_and_finish_form'|trans }}
+    </button>
+    {% endif %}
+    <a href="{{ path('admin_survey_index') }}" class="btn btn-link">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_survey_list'|trans }}
+    </a>
+    {{ form_end(form) }}
+{% endblock %}

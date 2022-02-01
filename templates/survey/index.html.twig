@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <a href="{{ path('sub_category', {id: survey.subCategory.category.id, sub_id: survey.subCategory.id}) }}">
+        {{ survey.subCategory.category.title }} - {{ survey.subCategory.title }}
+    </a>
+
+    <h1>{{ survey.title }} </h1>
+
+    {% set questionNumber = surveyAnswers.questions|length + 1 %}
+
+    <div class="row p-3">
+        <div class="col-sm-6">
+            <br>
+            <p>{{ 'question.number_question'|trans }} {{ questionNumber }}
+                {{ 'question.number_question_on'|trans }} {{ survey.questionsToAsk }}</p>
+            <h2>{{ question.title }}</h2>
+
+            {{ form_start(form) }}
+            {{ form_row(form.answer) }}
+            {{ form_widget(form.question, { 'attr': {'style':'display:none'} }) }}
+
+            {% if question.image.name %}
+                <p><img style="width: 100%" src="{{ vich_uploader_asset(question, 'imageFile') }}" alt="{{ question.title }}"></p>
+            {% endif %}
+            {% if survey.image.name %}
+                <p><img style="width: 100%" src="{{ vich_uploader_asset(survey, 'imageFile') }}" alt="{{ survey.title }}"></p>
+            {% endif %}
+
+            {% if questionNumber  == survey.questionsToAsk %}
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.save_question_and_finish_form'|trans }}
+                </button>
+                {{ form_widget(form.saveAndCreateNew, { 'attr': {'style':'display:none'}}) }}
+
+            {% else %}
+                {{ form_widget(form.saveAndCreateNew, {label: 'label.save_and_create_new_question', attr: {class: 'btn btn-success'}}) }}
+            {% endif %}
+            <a href="{{ path('sub_category', {id: survey.subCategory.category.id, sub_id: survey.subCategory.id}) }}" class="btn btn-link">
+                <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_survey_list'|trans }}
+            </a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

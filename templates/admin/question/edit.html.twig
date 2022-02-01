@@ -1,0 +1,32 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_survey'|trans({'%id%': question.survey.id}) }}</h1>
+    <h2>{{ question.survey.subCategory.category.title }} - {{ question.survey.subCategory.title }}</h2>
+    {% if show_confirmation|default(false) %}
+        {% set attr = {'data-confirmation': 'true'} %}
+        {{ include('admin/survey/_delete_confirmation.html.twig') }}
+    {% endif %}
+
+<div class="row p-3">
+    <div class="col-sm-6">
+        {{ form_start(form, {attr: attr|default({})}) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.answer) }}
+        {{ form_row(form.answerHelp) }}
+        {{ form_row(form.answerDetail) }}
+        {{ form_row(form.imageFile) }}
+
+        <button type="submit" class="{{ button_css|default("btn btn-primary") }}">
+            <i class="fa fa-save" aria-hidden="true"></i> {{ button_label|default('action.save'|trans) }}
+        </button>
+
+        <a href="{{ path('admin_survey_edit', {id: question.survey.id}) }}" class="btn btn-link">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back'|trans }}
+        </a>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

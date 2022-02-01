@@ -1,0 +1,8 @@
+{{ include('admin/survey/_delete_confirmation.html.twig') }}
+<form style="float:right;" action="{{ url('admin_survey_delete', {id: survey.id}) }}" method="post" data-confirmation="true" id="delete-form">
+    <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+    <button type="submit" class="btn btn-sm  btn-danger">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        {{ 'action.delete_survey'|trans }}
+    </button>
+</form>

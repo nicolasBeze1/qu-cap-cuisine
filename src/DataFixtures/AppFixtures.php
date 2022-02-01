@@ -15,6 +15,8 @@ use App\Entity\Comment;
 use App\Entity\Post;
 use App\Entity\Tag;
 use App\Entity\User;
+use App\Entity\Category;
+use App\Entity\SubCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -37,6 +39,8 @@ class AppFixtures extends Fixture
         $this->loadUsers($manager);
         $this->loadTags($manager);
         $this->loadPosts($manager);
+        $this->loadCategories($manager);
+        $this->loadSubCategories($manager);
     }
 
     private function loadUsers(ObjectManager $manager): void
@@ -48,6 +52,7 @@ class AppFixtures extends Fixture
             $user->setPassword($this->passwordHasher->hashPassword($user, $password));
             $user->setEmail($email);
             $user->setRoles($roles);
+            $user->setIsVerified(true);
 
             $manager->persist($user);
             $this->addReference($username, $user);
@@ -95,6 +100,35 @@ class AppFixtures extends Fixture
 
         $manager->flush();
     }
+
+    private function loadCategories(ObjectManager $manager): void
+    {
+        foreach ($this->getCategoryData() as $name) {
+            $category = new Category();
+            $category->setTitle($name);
+
+            $manager->persist($category);
+            $this->addReference('category-'.$name, $category);
+        }
+
+        $manager->flush();
+    }
+
+    private function loadSubCategories(ObjectManager $manager): void
+    {
+        foreach ($this->getSubCategoryData() as [$category, $subCategories]) {
+            foreach ($subCategories as $name) {
+                $subCategory = new SubCategory();
+                $subCategory->setCategory($this->getReference('category-'.$category));
+                $subCategory->setTitle($name);
+
+                $manager->persist($subCategory);
+            }
+        }
+        $manager->flush();
+    }
+
+
 
     private function getUserData(): array
     {
@@ -237,5 +271,44 @@ class AppFixtures extends Fixture
         $selectedTags = \array_slice($tagNames, 0, random_int(2, 4));
 
         return array_map(function ($tagName) { return $this->getReference('tag-'.$tagName); }, $selectedTags);
+    }
+
+    private function getCategoryData(): array
+    {
+        return [
+            'Boucherie',
+            'Pêche',
+            'Légumerie',
+            'Crémerie',
+            'Cave',
+            'Epicerie',
+            'Préparations culinaires',
+            'Culture',
+            'Personnel',
+            'Locaux',
+            'Matériel',
+            'Cuissons',
+            'Préparations de base',
+        ];
+    }
+
+    private function getSubCategorYData(): array
+    {
+        return [
+            ['Boucherie', [
+                'Viandes de boucherie',
+                'Porc',
+                'Mouton et Agneau',
+                'Veau',
+                'Boeuf',
+                'Abats',
+                'Volailles',
+                'Gibier',
+            ]],
+            ['Pêche', [
+                'Poissons',
+                'Mollusques et crustacés',
+            ]],
+        ];
     }
 }

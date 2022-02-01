@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {% if surveyAnswers.success %}
+
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1>{{ surveyAnswers.surveyUser.survey.title }} </h1>
+                <a href="{{ path('sub_category', {id: surveyAnswers.surveyUser.survey.subCategory.category.id, sub_id: surveyAnswers.surveyUser.survey.subCategory.id}) }}">
+                    {{ surveyAnswers.surveyUser.survey.subCategory.category.title }}
+                    - {{ surveyAnswers.surveyUser.survey.subCategory.title }}
+                </a>
+
+                <h2 class="text-center  text-success">
+                    {{ 'ended.success_1'|trans }}<br>
+                    {{ 'ended.success_2'|trans }}
+                    {{ surveyAnswers.nbCorrectAnswer }}
+                    {{ 'question.number_question_on'|trans }}
+                    {{ surveyAnswers.surveyUser.survey.questionsToAsk }}
+                </h2>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ path('survey', {id: surveyAnswers.surveyUser.survey.id}) }}" class="btn btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i> {{ 'action.remake'|trans }}
+                </a>
+                <a href="{{ path('sub_category', {id: surveyAnswers.surveyUser.survey.subCategory.category.id, sub_id: surveyAnswers.surveyUser.survey.subCategory.id}) }}" class="btn btn-primary">
+                    <i class="fa fa-undo" aria-hidden="true"></i> {{ 'action.back'|trans }}
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h1>{{ surveyAnswers.surveyUser.survey.title }} </h1>
+                <a href="{{ path('sub_category', {id: surveyAnswers.surveyUser.survey.subCategory.category.id, sub_id: surveyAnswers.surveyUser.survey.subCategory.id}) }}">
+                    {{ surveyAnswers.surveyUser.survey.subCategory.category.title }}
+                    - {{ surveyAnswers.surveyUser.survey.subCategory.title }}
+                </a>
+
+                <h2 class="text-center  text-danger">
+                    {{ 'ended.fail_1'|trans }}<br>
+                    {{ 'ended.fail_2'|trans }}
+                    {{ surveyAnswers.nbCorrectAnswer }}
+                    {{ 'question.number_question_on'|trans }}
+                    {{ surveyAnswers.surveyUser.survey.questionsToAsk }}
+                </h2>
+                {{ 'ended.fail_3'|trans }}
+                {{ surveyAnswers.surveyUser.survey.nbAnswersOfSuccess}}
+                {{ 'ended.fail_4'|trans }}
+            </div>
+            <div class="modal-footer">
+                <a href="{{ path('survey', {id: surveyAnswers.surveyUser.survey.id}) }}" class="btn btn-danger">
+                    <i class="fa fa-check" aria-hidden="true"></i> {{ 'action.remake'|trans }}
+                </a>
+                <a href="{{ path('sub_category', {id: surveyAnswers.surveyUser.survey.subCategory.category.id, sub_id: surveyAnswers.surveyUser.survey.subCategory.id}) }}" class="btn btn-primary">
+                    <i class="fa fa-undo" aria-hidden="true"></i> {{ 'action.back'|trans }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

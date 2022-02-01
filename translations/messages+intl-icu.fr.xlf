@@ -2,6 +2,309 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="category.no_categories_found">
+                <source>category.no_categories_found</source>
+                <target>Pas de catégories...</target>
+            </trans-unit>
+            <trans-unit id="sub_category.no_sub_categories_found">
+                <source>sub_category.no_sub_categories_found</source>
+                <target>Pas de sous catégories...</target>
+            </trans-unit>
+            <trans-unit id="survey.no_surveys_found">
+                <source>survey.no_surveys_found</source>
+                <target>Pas de questionnaires...</target>
+            </trans-unit>
+            <trans-unit id="action.create_survey">
+                <source>action.create_survey</source>
+                <target>Nouveau questionnaire</target>
+            </trans-unit>
+            <trans-unit id="label.survey_title">
+                <source>label.survey_title</source>
+                <target>Intitulé du questionnaire</target>
+            </trans-unit>
+            <trans-unit id="label.survey_difficulty">
+                <source>label.survey_difficulty</source>
+                <target>Niveau de difficulté</target>
+            </trans-unit>
+            <trans-unit id="help.survey_difficulty">
+                <source>help.survey_difficulty</source>
+                <target>Indiquez la difficulté de 1 à 10. 1 étant le plus facile</target>
+            </trans-unit>
+            <trans-unit id="label.survey_successPercent">
+                <source>label.survey_successPercent</source>
+                <target>Pourcentage pour réussir</target>
+            </trans-unit>
+            <trans-unit id="help.survey_successPercent">
+                <source>help.survey_successPercent</source>
+                <target>Indiquez le pourcentage minimum à atteindre pour réussir le questionnaire</target>
+            </trans-unit>
+            <trans-unit id="label.survey_questionsToAsk">
+                <source>label.survey_questionsToAsk</source>
+                <target>Nombre de question posées</target>
+            </trans-unit>
+            <trans-unit id="help.survey_questionsToAsk">
+                <source>help.survey_questionsToAsk</source>
+                <target>Indiquez le nombre de réponse auquel l'utilisateur doit répondre</target>
+            </trans-unit>
+            <trans-unit id="survey.created_successfully">
+                <source>survey.created_successfully</source>
+                <target>Questionnaire créé avec succès !</target>
+            </trans-unit>
+            <trans-unit id="title.survey_list">
+                <source>title.survey_list</source>
+                <target>Liste des questionnaires</target>
+            </trans-unit>
+            <trans-unit id="title.survey_new">
+                <source>title.survey_new</source>
+                <target>Nouveau questionnaire</target>
+            </trans-unit>
+            <trans-unit id="label.create_survey">
+                <source>label.create_survey</source>
+                <target>Créer le questionnaire</target>
+            </trans-unit>
+            <trans-unit id="label.save_and_create_new">
+                <source>label.save_and_create_new</source>
+                <target>Enregistrer et créer un nouveau</target>
+            </trans-unit>
+            <trans-unit id="label.question_title">
+                <source>label.question_title</source>
+                <target>Intitulé de la question</target>
+            </trans-unit>
+            <trans-unit id="label.question_answer">
+                <source>label.question_answer</source>
+                <target>Réponse attendu</target>
+            </trans-unit>
+            <trans-unit id="label.question_answerHelp">
+                <source>label.question_answerHelp</source>
+                <target>Complément d'informations</target>
+            </trans-unit>
+            <trans-unit id="help.question_answerHelp">
+                <source>help.question_answerHelp</source>
+                <target>Vous pouvez donner plus d'information sur la question ou sur le type de réponse attendu</target>
+            </trans-unit>
+            <trans-unit id="label.question_answerDetail">
+                <source>label.question_answerDetail</source>
+                <target>Explication de la réponse</target>
+            </trans-unit>
+            <trans-unit id="help.question_answerDetail">
+                <source>help.question_answerDetail</source>
+                <target>En cas de mauvaise réponse de l'utilisateur, vous pouvez expliquer la réponse ou renvoyer vers plus d'information.</target>
+            </trans-unit>
+            <trans-unit id="label.save_and_create_new_question">
+                <source>label.save_and_create_new_question</source>
+                <target>Question suivante</target>
+            </trans-unit>
+            <trans-unit id="label.save_question_and_finish_form">
+                <source>label.save_question_and_finish_form</source>
+                <target>Finaliser le questionnaire</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_survey_list">
+                <source>action.back_to_survey_list</source>
+                <target>Retour à la liste des questionnaires</target>
+            </trans-unit>
+            <trans-unit id="question.number_question">
+                <source>question.number_question</source>
+                <target>Question numéro</target>
+            </trans-unit>
+            <trans-unit id="question.minimum_question">
+                <source>question.minimum_question</source>
+                <target>questions minimum</target>
+            </trans-unit>
+            <trans-unit id="label.survey_category">
+                <source>label.survey_category</source>
+                <target>Catégorie</target>
+            </trans-unit>
+            <trans-unit id="label.survey_sub_category">
+                <source>label.survey_sub_category</source>
+                <target>Sous-catégorie</target>
+            </trans-unit>
+            <trans-unit id="placeholder.survey_category">
+                <source>placeholder.survey_category</source>
+                <target>Choisir une option</target>
+            </trans-unit>
+            <trans-unit id="placeholder.survey_subCategory">
+                <source>placeholder.survey_subCategory</source>
+                <target>Choisir une sous-catégorie</target>
+            </trans-unit>
+            <trans-unit id="action.enabled">
+                <source>action.enabled</source>
+                <target>Actif</target>
+            </trans-unit>
+            <trans-unit id="action.disabled">
+                <source>action.disabled</source>
+                <target>Non actif</target>
+            </trans-unit>
+            <trans-unit id="survey.invalid_numbers_questions">
+                <source>survey.invalid_numbers_questions</source>
+                <target>Questions insuffisantes...</target>
+            </trans-unit>
+            <trans-unit id="label.status">
+                <source>label.status</source>
+                <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
+            <trans-unit id="title.survey">
+                <source>title.survey</source>
+                <target>Questionnaire</target>
+            </trans-unit>
+            <trans-unit id="action.delete_survey">
+                <source>action.delete_survey</source>
+                <target>Supprimer</target>
+            </trans-unit>
+            <trans-unit id="delete_survey_modal.title">
+                <source>delete_survey_modal.title</source>
+                <target>Êtes-vous sûr de vouloir supprimer ce questionnaire ?</target>
+            </trans-unit>
+            <trans-unit id="delete_survey_modal.body">
+                <source>delete_survey_modal.body</source>
+                <target>Cette action ne peut pas être annulée.</target>
+            </trans-unit>
+            <trans-unit id="label.delete_survey">
+                <source>label.delete_survey</source>
+                <target>Supprimer le questionnaire</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="action.back">
+                <source>action.back</source>
+                <target>Retour</target>
+            </trans-unit>
+            <trans-unit id="action.add_question">
+                <source>action.add_question</source>
+                <target>Ajouter une question</target>
+            </trans-unit>
+            <trans-unit id="question.deleted_successfully">
+                <source>question.deleted_successfully</source>
+                <target>Question supprimée avec succès !</target>
+            </trans-unit>
+            <trans-unit id="survey.deleted_successfully">
+                <source>survey.deleted_successfully</source>
+                <target>Questionnaire supprimé avec succès !</target>
+            </trans-unit>
+            <trans-unit id="action.delete_question">
+                <source>action.delete_question</source>
+                <target>Supprimer</target>
+            </trans-unit>
+            <trans-unit id="delete_question_modal.title">
+                <source>delete_question_modal.title</source>
+                <target>Êtes-vous sûr de vouloir supprimer la question ?</target>
+            </trans-unit>
+            <trans-unit id="delete_question_modal.body">
+                <source>delete_question_modal.body</source>
+                <target>Cette action ne peut pas être annulée.</target>
+            </trans-unit>
+            <trans-unit id="label.delete_question">
+                <source>label.delete_question</source>
+                <target>Supprimer la question</target>
+            </trans-unit>
+            <trans-unit id="label.question_image">
+                <source>label.question_image</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="help.question_image">
+                <source>help.question_image</source>
+                <target>Vous pouvez associer une image à la question</target>
+            </trans-unit>
+            <trans-unit id="menu.survey_list">
+                <source>menu.survey_list</source>
+                <target>Liste des questionnaires</target>
+            </trans-unit>
+            <trans-unit id="menu.back_home">
+                <source>menu.back_home</source>
+                <target>Retour à l'accueil</target>
+            </trans-unit>
+            <trans-unit id="title.index">
+                <source>title.index</source>
+                <target>Tableau de bord</target>
+            </trans-unit>
+            <trans-unit id="title.category">
+                <source>title.category</source>
+                <target>Tableau de bord - Section </target>
+            </trans-unit>
+            <trans-unit id="question.number_question_on">
+                <source>question.number_question_on</source>
+                <target>sur</target>
+            </trans-unit>
+            <trans-unit id="ended.success_1">
+                <source>ended.success_1</source>
+                <target>Bravo!</target>
+            </trans-unit>
+            <trans-unit id="ended.success_2">
+                <source>ended.success_2</source>
+                <target>Vous venez de valider ce questionnaire avec un score de</target>
+            </trans-unit>
+            <trans-unit id="ended.fail_1">
+                <source>ended.fail_1</source>
+                <target>Vous ne validez pas ce questionnaire..</target>
+            </trans-unit>
+            <trans-unit id="ended.fail_2">
+                <source>ended.fail_2</source>
+                <target>Votre score est de</target>
+            </trans-unit>
+            <trans-unit id="ended.fail_3">
+                <source>ended.fail_3</source>
+                <target>Vous devez avoir</target>
+            </trans-unit>
+            <trans-unit id="ended.fail_4">
+                <source>ended.fail_4</source>
+                <target>bonnes réponses pour valider le questionnaire</target>
+            </trans-unit>
+            <trans-unit id="action.remake">
+                <source>action.remake</source>
+                <target>Refaire</target>
+            </trans-unit>
+            <trans-unit id="survey.survey_success">
+                <source>survey.survey_success</source>
+                <target>Questionnaires réussis</target>
+            </trans-unit>
+            <trans-unit id="survey.test_success">
+                <source>survey.test_success</source>
+                <target>Tests réussis</target>
+            </trans-unit>
+            <trans-unit id="survey.display_end">
+                <source>survey.display_end</source>
+                <target>terminé</target>
+            </trans-unit>
+            <trans-unit id="action.continue">
+                <source>action.continue</source>
+                <target>Continuer</target>
+            </trans-unit>
+            <trans-unit id="answer.error_answer">
+                <source>answer.error_answer</source>
+                <target>Mauvaise réponse!</target>
+            </trans-unit>
+            <trans-unit id="answer.answer">
+                <source>answer.answer</source>
+                <target>Réponse attendu:</target>
+            </trans-unit>
+            <trans-unit id="label.survey_image">
+                <source>label.survey_image</source>
+                <target>Image</target>
+            </trans-unit>
+            <trans-unit id="help.survey_image">
+                <source>help.survey_image</source>
+                <target>Vous pouvez associer une image à l'ensemble du questionnaire'</target>
+            </trans-unit>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <trans-unit id="note">
                 <source>note</source>
                 <target>NOTE</target>
@@ -121,10 +424,6 @@
                 <source>action.edit_post</source>
                 <target>Modifier l'article</target>
             </trans-unit>
-            <trans-unit id="action.save">
-                <source>action.save</source>
-                <target>Enregistrer</target>
-            </trans-unit>
             <trans-unit id="action.delete_post">
                 <source>action.delete_post</source>
                 <target>Supprimer l'article</target>
@@ -152,10 +451,6 @@
             <trans-unit id="action.create_post">
                 <source>action.create_post</source>
                 <target>Créer un nouvel article</target>
-            </trans-unit>
-            <trans-unit id="label.save_and_create_new">
-                <source>label.save_and_create_new</source>
-                <target>Enregistrer et créer un nouveau</target>
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="row p-3">
+        <div class="col-sm-10">
+            <h1>{{ 'title.category'|trans }} {{ subCategory.category.title }} - {{ subCategory.title }}</h1>
+        </div>
+
+        <div class="col-sm-2">
+            <a href="{{ path('category', {id: subCategory.category.id}) }}">
+                <h2><i class="fa fa-undo" aria-hidden="true"></i> {{ 'action.back'|trans }}</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10">
+            {% for survey in surveys %}
+                <a href="{{ path('survey', {id: survey.id}) }}" class="btn btn-block {{ survey.getCompletionPercent == 100 ? 'btn-success' :'btn-info' }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ survey.title }}
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            {{ 'survey.test_success'|trans }} {{ survey.nbSurveySuccess }}/{{ survey.NbSurveysToPass }}
+                        </div>
+
+                        <div class="col-md-2">
+                            {{ survey.getCompletionPercent }}% {{ 'survey.display_end'|trans }}
+                        </div>
+                    </div>
+                </a>
+
+            {% else %}
+                <div align="center">{{ 'survey.no_surveys_found'|trans }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

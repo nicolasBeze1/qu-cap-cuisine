@@ -1,0 +1,53 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <h1>{{ 'title.survey_new'|trans }} </h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.subCategory) }}
+    {{ form_row(form.difficulty) }}
+    {{ form_row(form.successPercent) }}
+    {{ form_row(form.questionsToAsk) }}
+    {{ form_row(form.imageFile) }}
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.create_survey'|trans }}
+    </button>
+    <a href="{{ path('admin_survey_index') }}" class="btn btn-link">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_survey_list'|trans }}
+    </a>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        window.onload = () => {
+            let category = document.querySelector("#survey_category");
+            category.addEventListener("change", function () {
+                let form = this.closest("form");
+                let data = this.name + "=" + this.value;
+                console.log(data);
+                fetch(form.action, {
+                    method: form.getAttribute("method"),
+                    body: data,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded;charset:utf-8"
+                    }
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                        let content = document.createElement("html");
+                        content.innerHTML = html;
+                        let newSelect = content.querySelector("#survey_subCategory");
+                        document.querySelector("#survey_subCategory").replaceWith(newSelect);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            });
+        }
+    </script>
+{% endblock %}

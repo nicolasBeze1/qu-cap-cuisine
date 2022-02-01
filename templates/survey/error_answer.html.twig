@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <h1>{{ question.survey.title }} - {{ question.title }}</h1>
+
+                <h2 class="text-center  text-danger">
+                    {{ 'answer.error_answer'|trans }}
+                </h2>
+                <h3 class="text-center">
+                    {{ 'answer.answer'|trans }} <span class="text-success">{{ question.answer }}</span>
+                </h3>
+                {{question.answerDetail}}
+            </div>
+            <div class="modal-footer">
+                <a href="{{ path('survey', {id: question.survey.id}) }}" class="btn btn-danger">
+                    <i class="fa fa-check" aria-hidden="true"></i> {{ 'action.continue'|trans }}
+                </a>
+            </div>
+        </div>
+
+{% endblock %}
