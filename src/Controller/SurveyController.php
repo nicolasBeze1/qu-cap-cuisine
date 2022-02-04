@@ -9,7 +9,6 @@ use App\Entity\Survey;
 use App\Entity\SurveyAnswers;
 use App\Entity\SurveyUser;
 use App\Form\AnswerType;
-use App\Repository\AnswerRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\SurveyAnswersRepository;
 use App\Repository\SurveyUserRepository;

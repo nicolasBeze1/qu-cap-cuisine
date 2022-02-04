@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Survey;
+use App\Form\SurveyEditType;
 use App\Form\SurveyType;
 use App\Repository\SurveyRepository;
 
@@ -59,7 +60,7 @@ class SurveyController extends AbstractController
      */
     public function edit(Request $request, Survey $survey, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(SurveyType::class, $survey);
+        $form = $this->createForm(SurveyEditType::class, $survey);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,7 +79,7 @@ class SurveyController extends AbstractController
      * @Route("/{id<\d+>}/change_status", methods="GET|POST", name="admin_survey_status")
      * @IsGranted("edit", subject="survey", message="Surveys can only be edited by their authors.")
      */
-    public function changeStatus(Request $request, Survey $survey, EntityManagerInterface $entityManager): Response
+    public function changeStatus(Survey $survey, EntityManagerInterface $entityManager): Response
     {
         if($survey->getQuestions()->count() >= $survey->getQuestionsToAsk()){
             $survey->setStatus(!$survey->isStatus());

@@ -3,20 +3,39 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <div class="row">
+        <div class="col-sm-6 center-block" style="float:none;">
+            <div class="well">
+                {{ form_start(registrationForm) }}
+                <fieldset>
+                    <legend><i class="fa fa-user-cog" aria-hidden="true"></i> {{ 'title.register'|trans }}</legend>
+                    {{ form_row(registrationForm.username) }}
 
-    {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.username) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword, {
-        label: 'Password'
-    }) }}
-    {{ form_row(registrationForm.agreeTerms) }}
-
-    <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+                    <div class="col-sm-6">
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="margin-bottom: 10px;margin-top: 10px;">
+                            <a href="{{ path('cgu') }}" target="_blank">
+                                <i class="fa fa-eye" aria-hidden="true"></i> {{ 'label.agreeTerms'|trans }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'action.register'|trans }}
+                        </button>
+                    </div>
+                </fieldset>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

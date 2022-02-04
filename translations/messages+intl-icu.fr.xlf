@@ -130,10 +130,20 @@
                 <source>action.enabled</source>
                 <target>Actif</target>
             </trans-unit>
+            <trans-unit id="action.not_verified">
+                <source>action.not_verified</source>
+                <target>Non vérifié</target>
+            </trans-unit>
+
+            <trans-unit id="action.verified">
+                <source>action.verified</source>
+                <target>Vérifié</target>
+            </trans-unit>
             <trans-unit id="action.disabled">
                 <source>action.disabled</source>
                 <target>Non actif</target>
             </trans-unit>
+
             <trans-unit id="survey.invalid_numbers_questions">
                 <source>survey.invalid_numbers_questions</source>
                 <target>Questions insuffisantes...</target>
@@ -212,7 +222,7 @@
             </trans-unit>
             <trans-unit id="menu.survey_list">
                 <source>menu.survey_list</source>
-                <target>Liste des questionnaires</target>
+                <target>Questionnaires</target>
             </trans-unit>
             <trans-unit id="menu.back_home">
                 <source>menu.back_home</source>
@@ -288,7 +298,23 @@
             </trans-unit>
             <trans-unit id="help.survey_image">
                 <source>help.survey_image</source>
-                <target>Vous pouvez associer une image à l'ensemble du questionnaire'</target>
+                <target>Vous pouvez associer une image à l'ensemble du questionnaire</target>
+            </trans-unit>
+            <trans-unit id="registration.success">
+                <source>registration.success</source>
+                <target>Vous vous êtes inscrit avec succès! En Attente de confirmation de l'administrateur.</target>
+            </trans-unit>
+            <trans-unit id="account.unverified">
+                <source>account.unverified</source>
+                <target>Votre compte n'a pas encore été approuvé par l'administrateur. Réessayez ulterieurement.</target>
+            </trans-unit>
+            <trans-unit id="title.user_list">
+                <source>title.user_list</source>
+                <target>Liste des utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="menu.user_list">
+                <source>menu.user_list</source>
+                <target>Utilisateurs</target>
             </trans-unit>
 
 
@@ -379,6 +405,10 @@
                 <source>title.login</source>
                 <target>Connexion sécurisée</target>
             </trans-unit>
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>S'enregistrer</target>
+            </trans-unit>
             <trans-unit id="title.post_list">
                 <source>title.post_list</source>
                 <target>Liste des articles</target>
@@ -464,6 +494,10 @@
                 <source>action.sign_in</source>
                 <target>Connectez-vous</target>
             </trans-unit>
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>S'inscrire</target>
+            </trans-unit>
             <trans-unit id="action.browse_app">
                 <source>action.browse_app</source>
                 <target>Naviguer sur l'application</target>
@@ -512,6 +546,10 @@
             <trans-unit id="label.password">
                 <source>label.password</source>
                 <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="label.agreeTerms">
+                <source>label.agreeTerms</source>
+                <target>Conditions d'utilisation</target>
             </trans-unit>
             <trans-unit id="label.current_password">
                 <source>label.current_password</source>

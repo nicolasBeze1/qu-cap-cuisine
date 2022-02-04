@@ -1,0 +1,50 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block main %}
+    <div class="row p-3">
+        <div class="col-sm-8">
+            <h1>{{ 'title.user_list'|trans }} </h1>
+        </div>
+    </div>
+
+
+<table class="table table-striped table-middle-aligned">
+    <thead>
+    <tr>
+        <th scope="col">{{ 'label.username'|trans }}</th>
+        <th scope="col">{{ 'label.email'|trans }}</th>
+        <th scope="col">{{ 'label.status'|trans }}</th>
+        <th scope="col"></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+            {% if user.isVerified %}
+                {{ 'action.verified'|trans }}
+            {% else %}
+                <span class="text-danger">{{ 'action.not_verified'|trans }}</span>
+            {% endif %}
+        </td>
+        <td>
+            {% if user.isVerified %}
+                <a href="{{ path('admin_user_status', {id: user.id}) }}" class="btn btn-sm btn-success">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            {% else %}
+                <a href="{{ path('admin_user_status', {id: user.id}) }}" class="btn btn-sm btn-danger">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+

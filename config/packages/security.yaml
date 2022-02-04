@@ -42,26 +42,27 @@ security:
                 enable_csrf: true
                 # The page users are redirect to when there is no previous page stored in the
                 # session (for example when the users access directly to the login page).
-                default_target_path: blog_index
+                default_target_path: index
 
             logout:
                 # The route name the user can go to in order to logout
                 path: security_logout
                 # The name of the route to redirect to after logging out
-                target: homepage
+                target: index
 
             # needed because in tests we redefine the 'main' firewall to use
             # HTTP Basic instead of the login form, so this firewall has
             # multiple authenticators
             # See https://symfony.com/doc/current/security/experimental_authenticators.html#configuring-the-authentication-entry-point
             entry_point: 'form_login'
+            user_checker: App\Security\UserChecker
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
         # this is a catch-all for the admin area
         # additional security lives in the controllers
-        - { path: '^/(%app_locales%)/admin', roles: ROLE_ADMIN }
+        - { path: '^/(%locale%)/admin', roles: ROLE_ADMIN }
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER

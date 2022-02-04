@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-
 class QuestionService
 {
     public function compare(string $str1, string $str2): bool

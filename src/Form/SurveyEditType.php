@@ -15,8 +15,11 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class SurveyType extends AbstractType
+class SurveyEditType extends AbstractType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
 
@@ -34,17 +37,14 @@ class SurveyType extends AbstractType
             ->add('difficulty', NumberType::class, [
                 'label' => 'label.survey_difficulty',
                 'help' => 'help.survey_difficulty',
-                'data' => 1,
             ])
             ->add('successPercent', NumberType::class, [
                 'label' => 'label.survey_successPercent',
                 'help' => 'help.survey_successPercent',
-                'data' => 80,
             ])
             ->add('questionsToAsk', NumberType::class, [
                 'label' => 'label.survey_questionsToAsk',
                 'help' => 'help.survey_questionsToAsk',
-                'data' => 10,
             ])
             ->add('imageFile', VichImageType::class, [
                 'label' => 'label.survey_image',
