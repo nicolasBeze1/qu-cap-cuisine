@@ -18,14 +18,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/")
  * @IsGranted("ROLE_USER")
  */
 class IndexController extends AbstractController
 {
-    /**
-     * @Route("/", name="index")
-     */
+
     public function index(CategoryRepository $categoryRepository, SurveyUserRepository $surveyUserRepository): Response
     {
         $categories = $categoryRepository->findAll();

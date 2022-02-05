@@ -20,10 +20,10 @@ class SecurityController extends AbstractController
     public function login(Request $request, Security $security, AuthenticationUtils $helper): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('homepage');
         }
 
-        $this->saveTargetPath($request->getSession(), 'main', $this->generateUrl('index'));
+        $this->saveTargetPath($request->getSession(), 'main', $this->generateUrl('homepage'));
 
         return $this->render('security/login.html.twig', [
             'error' => $helper->getLastAuthenticationError(),

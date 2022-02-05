@@ -22,7 +22,7 @@
                 <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container">
                         <div class="navbar-header col-md-3 col-lg-3">
-                            <a class="navbar-brand" href="{{ path('index') }}">
+                            <a class="navbar-brand" href="{{ path('homepage') }}">
                                 CookQuiz
                             </a>
                         </div>
@@ -31,7 +31,7 @@
 
                                 {% block header_navigation_links %}
                                     <li>
-                                        <a href="{{ path('index') }}">
+                                        <a href="{{ path('homepage') }}">
                                             <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.homepage'|trans }}
                                         </a>
                                     </li>
@@ -46,7 +46,7 @@
                                 {% endblock %}
 
                                 <li>
-                                    <a href="{{ path('index') }}"> <i class="fa fa-search"></i> {{ 'menu.search'|trans }}</a>
+                                    <a href="{{ path('homepage') }}"> <i class="fa fa-search"></i> {{ 'menu.search'|trans }}</a>
                                 </li>
 
                                 {% if app.user %}
