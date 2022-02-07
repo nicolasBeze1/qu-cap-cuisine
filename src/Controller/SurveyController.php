@@ -86,7 +86,7 @@ class SurveyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $correctAnswer = $questionService->compare($answer->getQuestion()->getAnswer(), $answer->getAnswer());
+            $correctAnswer = $questionService->checkAnswer($answer->getQuestion(), $answer->getAnswer());
 
             if ($correctAnswer) {
                 $surveyAnswers->setNbCorrectAnswer($surveyAnswers->getNbCorrectAnswer() + 1);

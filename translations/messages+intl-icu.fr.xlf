@@ -74,6 +74,14 @@
                 <source>label.question_answer</source>
                 <target>Réponse attendu</target>
             </trans-unit>
+            <trans-unit id="label.question_other_answer">
+                <source>label.question_other_answer</source>
+                <target>Autres réponses possible</target>
+            </trans-unit>
+            <trans-unit id="help.question_other_answer">
+                <source>help.question_other_answer</source>
+                <target>Si plusieurs réponse, les séparer par des virgules</target>
+            </trans-unit>
             <trans-unit id="label.question_answerHelp">
                 <source>label.question_answerHelp</source>
                 <target>Complément d'informations</target>
@@ -291,6 +299,10 @@
             <trans-unit id="answer.answer">
                 <source>answer.answer</source>
                 <target>Réponse attendu:</target>
+            </trans-unit>
+            <trans-unit id="answer.other_answer">
+                <source>answer.other_answer</source>
+                <target>Autres réponses possible: </target>
             </trans-unit>
             <trans-unit id="label.survey_image">
                 <source>label.survey_image</source>

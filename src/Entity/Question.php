@@ -42,6 +42,14 @@ class Question
     private $answer;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\NotBlank
+     */
+    private $otherAnswer;
+
+    /**
      * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
@@ -143,6 +151,15 @@ class Question
         $this->answer = $answer;
     }
 
+    public function getOtherAnswer(): ?string
+    {
+        return $this->otherAnswer;
+    }
+
+    public function setOtherAnswer(?string $otherAnswer): void
+    {
+        $this->otherAnswer = $otherAnswer;
+    }
     public function getAnswerHelp(): ?string
     {
         return $this->answerHelp;

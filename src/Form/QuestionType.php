@@ -24,6 +24,10 @@ class QuestionType extends AbstractType
             ->add('answer', null, [
                 'label' => 'label.question_answer',
             ])
+            ->add('otherAnswer', null, [
+                'label' => 'label.question_other_answer',
+                'help' => 'help.question_other_answer',
+            ])
             ->add('answerHelp', null, [
                 'label' => 'label.question_answerHelp',
                 'help' => 'help.question_answerHelp',

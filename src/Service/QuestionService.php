@@ -2,8 +2,24 @@
 
 namespace App\Service;
 
+use App\Entity\Question;
+
 class QuestionService
 {
+    public function checkAnswer(Question $question, string $answer): bool
+    {
+        if($this->compare($question->getAnswer(), $answer)){
+            return true;
+        }
+        $otherAnswers = explode(",", $question->getOtherAnswer());
+        foreach ($otherAnswers as $otherAnswer){
+            if($this->compare($otherAnswer, $answer)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function compare(string $str1, string $str2): bool
     {
         return $this->transformerEnURL($str1) === $this->transformerEnURL($str2);
