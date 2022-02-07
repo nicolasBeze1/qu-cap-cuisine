@@ -1,7 +1,7 @@
 {% extends 'admin/layout.html.twig' %}
 
 {% block main %}
-    <h1>{{ 'title.edit_survey'|trans({'%id%': question.survey.id}) }}</h1>
+    <h1>{{ question.survey.title }}</h1>
     <h2>{{ question.survey.subCategory.category.title }} - {{ question.survey.subCategory.title }}</h2>
     {% if show_confirmation|default(false) %}
         {% set attr = {'data-confirmation': 'true'} %}
