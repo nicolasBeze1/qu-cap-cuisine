@@ -42,10 +42,9 @@ class Question
     private $answer;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
-     * @Assert\NotBlank
      */
     private $otherAnswer;
 
